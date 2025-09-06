@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/* ✅ Fix anchor styles globally */
+nav a {
+  @apply text-white no-underline;
+}
+
+nav a:visited {
+  @apply text-white;
+}
+
+nav a:hover {
+  @apply text-gray-300;
+}
