@@ -6,6 +6,7 @@ import Register from './pages/register';
 import Seller from './pages/seller';
 import NotFound from './pages/notFound';
 import LandingPage from './pages/landingPage';
+import ThemeContextProvider from './context/ThemeContext';
 
 function App() {
    

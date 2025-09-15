@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 import { Link } from "react-router"; // ✅ still using react-router
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  let {theme,setTheme}=useContext(ThemeContext)
 
   return (
     <nav className="bg-black shadow-md">
@@ -19,6 +21,13 @@ const Navbar = () => {
             <span className="ml-2 text-lg font-semibold text-white">
               Bazario
             </span>
+          </div>
+          <div>
+            <button onClick={()=>{
+              (theme==='light')? setTheme('dark'):setTheme('light')
+            }}>
+              {(theme==="dark")? "light":"dark"}
+            </button>
           </div>
 
           {/* Desktop Menu */}

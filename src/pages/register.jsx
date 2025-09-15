@@ -1,12 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useRef } from "react";
+import {auth,createUserWithEmailAndPassword} from "../firebase/config.js"
+import { AuthContext } from "../context/authContext.jsx";
 
 const Register = () => {
+  let emailInput=useRef()
+  let passInput=useRef()
+  let confirmPass=useRef()
+  let {user,setUser}=useContext(AuthContext)
+  let signupHandler=async(e)=>{
+    e.preventDefault()
+    if(passInput.current.value != confirmPass.current.value){
+      alert("Passwords don't match!")
+      return
+    }
+    try {
+     await createUserWithEmailAndPassword(auth, emailInput.current.value, passInput.current.value)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    console.log("Signup...")
+    setUser(user)
+    // ...
+  })
+    } catch (error) {
+      console.error("SignUp Error!",error)
+    }
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="w-full max-w-sm rounded-lg bg-white p-6 shadow-md">
         <h1 className="text-xl font-semibold text-center mb-4">Register</h1>
 
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={signupHandler}>
           <input
             type="text"
             placeholder="Full Name"
@@ -15,12 +42,14 @@ const Register = () => {
 
           <input
             type="email"
+            ref={emailInput}
             placeholder="Email"
             className="w-full rounded-md border border-gray-300 px-3 py-2 text-black focus:border-blue-500 focus:ring focus:ring-blue-200 outline-none"
           />
 
           <input
             type="password"
+            ref={passInput}
             placeholder="Password"
             className="w-full rounded-md border border-gray-300 px-3 py-2 text-black focus:border-blue-500 focus:ring focus:ring-blue-200 outline-none"
           />
@@ -28,6 +57,7 @@ const Register = () => {
           <input
             type="password"
             placeholder="Confirm Password"
+            ref={confirmPass}
             className="w-full rounded-md border border-gray-300 px-3 py-2 text-black focus:border-blue-500 focus:ring focus:ring-blue-200 outline-none"
           />
 
