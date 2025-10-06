@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { lazy, Suspense, useContext } from 'react'
 import { ThemeContext } from "../context/ThemeContext";
-import Navbar from "../components/navbar";
+import Navbar from "../components/navbar.jsx";
 import Search from '../components/search'
 import Banner from '../components/banner'
 import Footer from '../components/footer'
@@ -77,14 +77,15 @@ const LandingPage = () => {
           <Products />
         </Suspense>
         <div>
-          <input ref={prodInput} type="text" placeholder="Add product"></input>
+          {/*Add product function*/}
+          <input ref={prodInput} type="text" placeholder="Write here!"></input>
           {isEdit ?
           <div>
           <button onClick={()=>editProductHandler()}>Update</button>
           <button onClick={()=>setIsEdit(false)}>Cancel</button>
           </div>
           :
-          <button onClick={()=>addProduct()}>Add</button>
+          <button className="text-white" onClick={()=>addProduct()}>Comment</button>
           }
         </div>
         <ProductListing products={products}/>

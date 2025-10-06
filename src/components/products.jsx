@@ -26,12 +26,12 @@ const Products = () => {
             {products.map((elm) => (
                 <>
                     <div key={elm.id} className='border p-4' >
-                        <div className='text-[0.5em] h-14 w-full'><h1>{elm.title}</h1></div>
+                        <div className='text-sm h-14 w-full'><h3>{elm.title}</h3></div>
                         <div><img src={elm.thumbnail} className='size-32 mt-5' /></div>
                         <div><p>{elm.category}</p></div>
                         <div className="text-red-400">${elm.price}</div>
                         <div className='mb-3  overflow-hidden line-clamp-2'><p>{elm.description}</p></div>
-                        <div><button onClick={() => addToCart(elm.id)}>Add to cart</button></div>
+                        <div><button className="text-white" onClick={() => addToCart(elm.id)}>Add to cart</button></div>
                     </div>
                 </>
             ))}

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import { useRef } from "react";
+import Navbar from "../components/navbar.jsx";
 import {auth,signInWithEmailAndPassword} from "../firebase/config.js"
 import { Navigate, useNavigate } from "react-router";
 import { AuthContext } from "../context/authContext.jsx";
@@ -49,6 +50,8 @@ const Login = () => {
     }
   }
   return (
+    <>
+    <Navbar/>
     <div className="min-h-screen  flex items-center justify-center bg-gray-100">
       <div className="w-full max-w-sm rounded-lg bg-white p-6 shadow-md">
         <h1 className="text-xl font-semibold text-center mb-4">Login</h1>
@@ -88,6 +91,7 @@ const Login = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 

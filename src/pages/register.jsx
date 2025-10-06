@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup"
 import * as yup from "yup"
+import Navbar from "../components/navbar.jsx";
 import {auth,createUserWithEmailAndPassword} from "../firebase/config.js"
 import { AuthContext } from "../context/authContext.jsx";
 
@@ -54,6 +55,8 @@ const Register = () => {
   }
 
   return (
+    <>
+     <Navbar/>
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="w-full max-w-sm rounded-lg bg-white p-6 shadow-md">
         <h1 className="text-xl font-semibold text-center mb-4">Register</h1>
@@ -104,6 +107,7 @@ const Register = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 
