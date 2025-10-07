@@ -7,7 +7,7 @@ const Navbar = () => {
   let {theme,setTheme}=useContext(ThemeContext)
 
   return (
-    <nav className="bg-black shadow-md">
+    <nav className="bg-black shadow-md sticky top-0 z-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           

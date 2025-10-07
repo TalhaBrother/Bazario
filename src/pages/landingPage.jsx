@@ -76,9 +76,9 @@ const LandingPage = () => {
         }>
           <Products />
         </Suspense>
-        <div>
+        <div className="flex w-full justify-center align-center">
           {/*Add product function*/}
-          <input ref={prodInput} type="text" placeholder="Write here!"></input>
+          <input ref={prodInput} className="text-white border-2 w-[60%] bg-black" type="text" placeholder="Share your thoughts here!"></input>
           {isEdit ?
           <div>
           <button onClick={()=>editProductHandler()}>Update</button>

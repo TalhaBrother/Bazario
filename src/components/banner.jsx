@@ -5,12 +5,14 @@ import banImg3 from "../assets/2.avif"
 import banImg4 from "../assets/3.avif"
 import banImg5 from "../assets/4.avif"
 import banImg6 from "../assets/5.avif"
-const Banner=()=>{
-   return (
+const Banner = () => {
+  return (
     <div
       id="carouselExampleControlsNoTouching"
       className="carousel slide"
       data-bs-touch="false"
+      data-bs-ride="carousel"
+      data-bs-interval="2000"
     >
       <div className="carousel-inner">
         <div className="carousel-item active">
@@ -34,21 +36,21 @@ const Banner=()=>{
             alt="Third Slide"
           />
         </div>
-         <div className="carousel-item">
+        <div className="carousel-item">
           <img
             src={banImg}
             className="d-block w-100"
             alt="Third Slide"
           />
         </div>
-         <div className="carousel-item">
+        <div className="carousel-item">
           <img
             src={banImg5}
             className="d-block w-100"
             alt="Third Slide"
           />
         </div>
-         <div className="carousel-item">
+        <div className="carousel-item">
           <img
             src={banImg6}
             className="d-block w-100"
