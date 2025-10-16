@@ -7,6 +7,7 @@ import Seller from './pages/seller';
 import NotFound from './pages/notFound';
 import LandingPage from './pages/landingPage';
 import ThemeContextProvider from './context/ThemeContext';
+import Product from './components/product';
 
 function App() {
    
@@ -28,6 +29,9 @@ function App() {
         </>}/>
          <Route path='seller' element={<>
         <Seller/>
+        </>}/>
+           <Route path='product' element={<>
+        <Product/>
         </>}/>
            <Route path='*' element={<>
         <NotFound/>

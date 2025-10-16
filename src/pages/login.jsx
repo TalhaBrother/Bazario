@@ -51,12 +51,13 @@ const Login = () => {
   }
   return (
     <>
+    <div className="w-full">
     <Navbar/>
-    <div className="min-h-screen  flex items-center justify-center bg-gray-100">
-      <div className="w-full max-w-sm rounded-lg bg-white p-6 shadow-md">
+    <div className="w-full min-h-screen bg-gray-400 flex justify-center items-center">
+      <div className="w-full max-w-sm sm:max-w-md bg-white p-6 rounded-lg shadow-xl">
         <h1 className="text-xl font-semibold text-center mb-4">Login</h1>
 
-        <form className="space-y-4" onSubmit={handleSubmit(submitHandler)}>
+        <form className="w-full space-y-4" onSubmit={handleSubmit(submitHandler)}>
           {/* Email */}
           <input
             type="email"
@@ -90,6 +91,7 @@ const Login = () => {
           </a>
         </p>
       </div>
+    </div>
     </div>
     </>
   );

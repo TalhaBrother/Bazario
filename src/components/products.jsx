@@ -1,27 +1,37 @@
 import React from "react"
 import { useState,useEffect } from "react"
+import Search from "./search"
+import axios from "axios"
 const Products = () => {
     let [products, setProducts] = useState([])
     let [cart, setCart] = useState([])
+    let [count, setCount]=useState(1)
+    let [search,setSearch]=useState("")
     let fetchProducts = async () => {
         try {
-            let data = await fetch("https://dummyjson.com/products").then(res => res.json())
+            let data = await axios.get( search? `https://dummyjson.com/products/search?q=${search}`:"https://dummyjson.com/products")
             console.log(data)
-            setProducts(data.products)
+            setProducts(data.data.products)
         } catch (error) {
             console.error("API Fetch Error!", error)
 
         }
     }
+    
     let addToCart = (id) => {
         console.log(id)
         let findProduct = products.find(item => item.id === id)
         setCart([...cart, findProduct])
+        setCount(count+1)
+        alert(`${count} Items Added Successfully!`)
+        
     }
     useEffect(() => {
         fetchProducts()
-    }, [])
+    }, [search])
     return (
+        <>
+        <Search search={search} setSearch={setSearch}/>
         <div className='w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 '>
             {products.map((elm) => (
                 <>
@@ -36,6 +46,7 @@ const Products = () => {
                 </>
             ))}
         </div>
+        </>
     )
 }
 export default Products

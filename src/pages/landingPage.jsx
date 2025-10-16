@@ -66,7 +66,7 @@ const LandingPage = () => {
       <div className={`${theme === "dark" ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
 
         <Navbar />
-        <Search />
+    
         <Banner />
 
         <Suspense fallback={
